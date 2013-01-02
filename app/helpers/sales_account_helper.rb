@@ -1,0 +1,2 @@
+module SalesAccountHelper
+end
