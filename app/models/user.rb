@@ -1,20 +1,21 @@
 class User < ActiveRecord::Base
-  attr_accessible :mail_address, :name
+  attr_accessor :delegate_role # ロールに委譲するための属性
+  attr_accessible :mail_address, :name, :delegate_role
 
   # DCIアーキテクチャ適用前のモデルメソッド
   def purchase(item_id)
-  	# 商品を購入する
+  	"call model purchase"
   end
 
   def send_back(item_id)
-  	# 商品を返品する
+  	"call model send_back"
   end
 
   def exhibit(item)
-  	# 商品を出品する
+  	"call model exhibit"
   end
 
-  def sales_account
-  	# 売上を管理する
+  def method_missing(action, *args)
+    @delegate_role.__send__(action, *args)
   end
 end

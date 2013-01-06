@@ -1,4 +1,6 @@
 # encoding:utf-8
+require "forwardable"
+
 class SalesAccountContext
 	# 売上管理コンテキスト
 
@@ -11,7 +13,7 @@ class SalesAccountContext
 	def initialize(user)
 		@user = user
 		# 出品者ロールのミックスイン
-		@user.extend Exhibit
+		@user.delegate_role = Exhibitor.new
 	end
 
 	def call

@@ -1,4 +1,6 @@
 # encoding: utf-8
+require "forwardable"
+
 class ExhibitItemContext
 	# 商品出品コンテキスト
 
@@ -11,7 +13,9 @@ class ExhibitItemContext
 	def initialize(user, sales_item)
 		@user, @sales_item = user, sales_item
 		# 出品者ロールのミックスイン
-		@user.extend Exhibitor
+		@user.delegate_role = Exhibitor.new
+		@user.extend SingleForwardable
+		@user.def_delegator :delegate_role, :exhibit
 	end
 
 	def call

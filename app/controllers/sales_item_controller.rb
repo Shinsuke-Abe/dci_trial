@@ -1,7 +1,7 @@
 # encoding: utf-8
 class SalesItemController < ApplicationController
-	before_filter sign_in
-	# サンプルなので動かない
+	# セッション処理や認証を創り込んでいないサンプルなので動かない
+	# あくまでコントローラからの呼び出しイメージ
 
 	def purchase_item
 		# コントローラからはContextを呼び出す

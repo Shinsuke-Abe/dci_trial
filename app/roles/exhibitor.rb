@@ -1,12 +1,13 @@
 # encoding: utf-8
-module Exhibitor
+class Exhibitor
 	# 出品者ロール
+	# 委譲を用いたパターン
 
 	def exhibit(item)
-		# 出品する
+		"call role exhibit"
 	end
 
 	def sales_account
-		# 売上管理
+		"call role sales_account"
 	end
 end

@@ -3,10 +3,10 @@ module Customer
 	# 購入者ロール
 
 	def purchase(item_id)
-		# 購入する
+		"call role purchase"
 	end
 
 	def send_back(item_id)
-		# 返品する
+		"call role send_back"
 	end
 end
